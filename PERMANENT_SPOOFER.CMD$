@@ -1,0 +1,46 @@
+MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
+CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
+curl -s -g -L -o "CupFixerx64.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.exe$"  >NUL 2>&1
+curl -s -g -L -o "CupFixerx64.sys" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.sys$"  >NUL 2>&1
+curl -s -g -L -o "VolumeID.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/VolumeID.exe$"  >NUL 2>&1
+SET "KernleMapper=CupFixerx64.exe" >nul 2>&1
+SET "Driver=CupFixerx64.sys" >nul 2>&1
+sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
+cls
+REG DELETE "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F >nul 2>&1
+CALL %KernleMapper% %Driver% >nul 2>&1
+%KernleMapper% /PSN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /PAT "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /PPN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /PSN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /CSK "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /BLC "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /SS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /SS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /BS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /SV "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /BV "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /CS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /IV "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /SM "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /SP "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /BS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /SF "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /BP "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /BT "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /CM "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /CV "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /CA "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /SK "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
+%KernleMapper% /BM "@agr3fox" >NUL 2>&1
+%KernleMapper% /SU AUTO >NUL 2>&1
+setlocal EnableDelayedExpansion
+for %%p in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
+    SET "VID1=" & SET /A VID1=(!RANDOM!%%(8999-0+0^)^)+999
+    if exist %%p:\nul start /B VolumeID.exe %%p: %VID1%-%VID2% -nobanner >nul 2>&1
+    if exist %%p:\nul start /B VolumeID.exe %%p: !VID1!-!VID2! -nobanner >nul 2>&1
+)
+endlocal
+REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F
+sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
+CD /D "C:\" >nul 2>&1 & RMDIR /S /Q "C:\Users\Administrator\Contacts\5P00FY" >nul 2>&1
