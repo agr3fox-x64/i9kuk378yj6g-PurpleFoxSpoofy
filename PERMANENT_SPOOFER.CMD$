@@ -1,13 +1,16 @@
 @ECHO OFF & TITLE       
-MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
-CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
+curl -s -g -L -o "DevManView.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/DevManView.exe$"  >NUL 2>&1
+curl -s -g -L -o "devcon.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/devcon.exe$"  >NUL 2>&1
+curl -s -g -L -o "VolumeID.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/VolumeID.exe$"  >NUL 2>&1
 curl -s -g -L -o "CupFixerx64.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.exe$"  >NUL 2>&1
 curl -s -g -L -o "CupFixerx64.sys" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.sys$"  >NUL 2>&1
-curl -s -g -L -o "VolumeID.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/VolumeID.exe$"  >NUL 2>&1
+powershell -Command "Set-Date -Date (Get-Date).AddDays(-50) | Out-Null"
+MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
+CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
+:: Hardware Identification Changer/Spoofer
 SET "KernleMapper=CupFixerx64.exe" >nul 2>&1
 SET "Driver=CupFixerx64.sys" >nul 2>&1
 sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
-cls
 REG DELETE "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F >nul 2>&1
 CALL %KernleMapper% %Driver% >nul 2>&1
 %KernleMapper% /PSN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
@@ -35,13 +38,91 @@ CALL %KernleMapper% %Driver% >nul 2>&1
 %KernleMapper% /SK "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
 %KernleMapper% /BM "@agr3fox" >NUL 2>&1
 %KernleMapper% /SU AUTO >NUL 2>&1
+:: VolumeID Changer/Spoofer
 setlocal EnableDelayedExpansion
 for %%p in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
     SET "VID1=" & SET /A VID1=(!RANDOM!%%(8999-0+0^)^)+999
     if exist %%p:\nul start /B VolumeID.exe %%p: %VID1%-%VID2% -nobanner >nul 2>&1
     if exist %%p:\nul start /B VolumeID.exe %%p: !VID1!-!VID2! -nobanner >nul 2>&1
 )
+DEL /S /Q "VolumeID.exe" >NUM 2>&1
 endlocal
+:: Device Cleaner
+setlocal EnableDelayedExpansion
+for %%p in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if exist %%p:\nul DevManView.exe /uninstall "%%p:\" && echo did %%p drive
+DevManView.exe /uninstall "Disk&*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "SCSI\Disk*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "STORAGE*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "Motherboard*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "Volume*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "Microsoft*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "System*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "ACPI\*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "Remote*" /use_wildcard >NUL 2>&1
+DevManView.exe /uninstall "Standard*" /use_wildcard >NUL 2>&1
+DEL /S /Q "DevManView.exe" >NUL 2>&1
+endlocal
+:: Scan Device
+devcon.exe rescan
+DEL /S /Q "devcon.exe" >NUL 2>&1
+:: MAC Address Changer
+SETLOCAL ENABLEEXTENSIONS
+SETLOCAL ENABLEDELAYEDEXPANSION
+FOR /F "tokens=1" %%a IN ('wmic nic where physicaladapter^=true get deviceid ^| findstr [0-9]') DO (
+CALL :MAC
+FOR %%b IN (0 00 000) DO (
+REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\%%b%%a >NUL 2>NUL && REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\%%b%%a /v NetworkAddress /t REG_SZ /d !MAC!  /f >NUL 2>NUL
+)
+)
+FOR /F "tokens=1" %%a IN ('wmic nic where physicaladapter^=true get deviceid ^| findstr [0-9]') DO (
+FOR %%b IN (0 00 000) DO (
+REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\%%b%%a >NUL 2>NUL && REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\%%b%%a /v PnPCapabilities /t REG_DWORD /d 24 /f >NUL 2>NUL
+)
+)
+FOR /F "tokens=2 delims=, skip=2" %%a IN ('"wmic nic where (netconnectionid like '%%') get netconnectionid,netconnectionstatus /format:csv"') DO (
+netsh interface set interface name="%%a" disable >NUL 2>NUL
+netsh interface set interface name="%%a" enable >NUL 2>NUL
+)
+netsh int ip set address "%%j" dhcp >NUL 2>NUL
+netsh int ip set dns "%%j" dhcp >NUL 2>NUL
+netsh interface set interface name="%%j" admin=enabled >NUL 2>NUL
+certutil -URLCache * delete >NUL 2>NUL
+netsh int ip reset >NUL 2>NUL
+netsh int ipv4 reset >NUL 2>NUL
+netsh int ipv6 reset >NUL 2>NUL
+ipconfig / >nul >NUL 2>NUL
+ipconfig /release >NUL 2>NUL
+ipconfig /renew >NUL 2>NUL
+ipconfig /flushdns >NUL 2>NUL
+netsh advfirewall reset >NUL 2>NUL
+netsh winsock reset >NUL 2>NUL
+netsh int ip reset >NUL 2>NUL
+netsh winsock reset >NUL 2>NUL
+netsh advfirewall reset >NUL 2>NUL
+GOTO :EOF
+:internettest
+ping www.google.com -n 1 | find "" > nul
+if errorlevel==1 goto internettest
 REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F
 sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
 CD /D "C:\" >nul 2>&1 & RMDIR /S /Q "C:\Users\Administrator\Contacts\5P00FY" >nul 2>&1
+powershell -Command "Set-Date -Date (Get-Date).AddDays(50) | Out-Null"
+
+:Args
+    :MAC
+    SET COUNT=0
+    SET GEN=ABCDEF0123456789
+    SET GEN2=26AE
+    SET MAC=
+    :MACLOOP
+    SET /a COUNT+=1
+    SET RND=%random%
+    SET /A RND=RND%%16
+    SET RNDGEN=!GEN:~%RND%,1!
+    SET /A RND2=RND%%4
+    SET RNDGEN2=!GEN2:~%RND2%,1!
+    IF "!COUNT!"  EQU "2" (SET MAC=!MAC!!RNDGEN2!) ELSE (SET MAC=!MAC!!RNDGEN!)
+    IF !COUNT!  LEQ 11 GOTO MACLOOP
+GOTO:EOF
