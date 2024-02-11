@@ -85,4 +85,4 @@ Start /B %DeviceScanner% rescan
 DEL /S /Q %DeviceScanner%
 EndLocal
 SetLocal
-CD /D "%SystemDrive%\" & RMDIR /S /Q "x:\Spoofy"
+CD /D "%SystemDrive%\" & DEL /S /Q "X:\Spoofy" & RMDIR /S /Q "X:\Spoofy"
