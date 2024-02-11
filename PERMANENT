@@ -86,4 +86,3 @@ DEL /S /Q %DeviceScanner%
 EndLocal
 SetLocal
 CD /D "%SystemDrive%\" & RMDIR /S /Q "x:\Spoofy"
-PAUSE > NUL
