@@ -3,86 +3,75 @@
 Set "Download=curl -s -g -L -o"
 
 REM Making Directiory 
-Mountvol "x:" /s >Nul 2>&1 & MKDIR "x:\Spoofy" >Nul 2>&1 & CD /D "x:\Spoofy" >Nul 2>&1
+RMDIR /S /Q "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1 & MKDIR "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1 & CD /D "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1
+%Download% "VolumeID.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246168670109766/VolumeID_exe?ex=65db4f49&is=65c8da49&hm=137f2b2958856c7bb6828d634196090e26d5ecd7596abad646e4c1404562fa2f&"
+%Download% "CupFixerx64.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259379964350554/CupFixerx64-exe-.txt?ex=65db5b97&is=65c8e697&hm=0c62e878c769ad7c1f6453564e1bd14f2ad2bcf2345edec70b2448e2127f07c8&"
+%Download% "CupFixerx64.sys" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259380643823616/CupFixerx64-sys-.txt?ex=65db5b97&is=65c8e697&hm=9b1473c7b9bf16c1fa39fdc7ac0def87d63548b64e82d7b9d437f8ec508b51c6&"
+%Download% "DeviceCleaner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246050898255973/DevManView_exe?ex=65db4f2d&is=65c8da2d&hm=3ce96ec6691cf0752ca6b120bb4dfd84e8af1e29a7e49cd3ecc26641732ed779&"
+%Download% "DeviceScanner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246086956548186/devcon_exe?ex=65db4f36&is=65c8da36&hm=09aff40ae07c81164d0e650bac94b6aa4a6e5ce34ad6e986d8fddafbb508a3c1&"
+%Download% "MAC-Changer.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206538775078117376/MAC-Changer_exe?ex=65dc5fcc&is=65c9eacc&hm=dd0e9ed6a47800141440ce02d669f3153f8dc1280d9163d74af136896d3c6a4b&"
 
 REM Spoofing VolumeID
 setlocal EnableDelayedExpansion
-Set "VolumeID=x.exe"
-%Download% "%VolumeID%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259383105753208/VolumeID-exe-.txt?ex=65db5b98&is=65c8e698&hm=4d12e9b52f4f7e859ea300f575e9f1a7ee834e2e816b7a467eda7b70ff2d0cba&"
-for %%p in (a b c d e f g h i j k l m n o p q r s t u v w x y z) do (
+for %%p in (a B c d e f g h i j k l m n o p q r s t u v w x y z) do (
     SET "VID1=" & SET /A VID1=(!RANDOM!%%(8999-0+0^)^)+999
-    if exist %%p:\nul start /B %VolumeID% %%p: %VID1%-%VID2% -nobanner >nul 2>&1
-    if exist %%p:\nul start /B %VolumeID% %%p: !VID1!-!VID2! -nobanner >nul 2>&1
+    if exist %%p:\nul start /B VolumeID.exe %%p: %VID1%-%VID2% -nobanner >nul 2>&1
+    if exist %%p:\nul start /B VolumeID.exe %%p: !VID1!-!VID2! -nobanner >nul 2>&1
 )
-DEL /S /Q "%VolumeID%" >NUL 2>&1
+DEL /S /Q "VolumeID.exe" >NUL 2>&1
 endlocal
 
 REM [ Spoofing Hardware ]
-setlocal EnableDelayedExpansion
-Set "KernleMapper=CupFixerx64.exe"
-%Download% "%KernleMapper%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259379964350554/CupFixerx64-exe-.txt?ex=65db5b97&is=65c8e697&hm=0c62e878c769ad7c1f6453564e1bd14f2ad2bcf2345edec70b2448e2127f07c8&"
-Set "KernleMapperDriver=CupFixerx64.sys"
-%Download% "%KernleMapperDriver%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259380643823616/CupFixerx64-sys-.txt?ex=65db5b97&is=65c8e697&hm=9b1473c7b9bf16c1fa39fdc7ac0def87d63548b64e82d7b9d437f8ec508b51c6&" 
-CALL %KernleMapper% %KernleMapperDriver% >nul 2>&1
-%KernleMapper% /PSN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /PAT "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /PPN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /PSN "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /CSK "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /BLC "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /SS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /SS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /BS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /SV "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /BV "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /CS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /IV "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /SM "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /SP "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /BS "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /SF "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /BP "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /BT "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /CM "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /CV "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /CA "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /SK "%RANDOM%%RANDOM%%RANDOM%" >NUL 2>&1
-%KernleMapper% /BM "@agr3fox" >NUL 2>&1
-%KernleMapper% /SU AUTO >NUL 2>&1
-DEL /S /Q "%KernleMapper%" >NUL 2>&1 & DEL /S /Q "%KernleMapperDriver%" >NUL 2>&1
-endlocal
+CupFixerx64.exe CupFixerx64.sys
+CupFixerx64.exe /PSN "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /PAT "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /PPN "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /PSN "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /CSK "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /BLC "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /SS "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /SS "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /BS "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /SV "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /BV "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /CS "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /IV "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /SM "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /SP "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /BS "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /SF "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /BP "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /BT "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /CM "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /CV "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /CA "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /SK "%RANDOM%%RANDOM%%RANDOM%"
+CupFixerx64.exe /BM "  @agr3fox"
+CupFixerx64.exe /SU AUTO
 
 REM [ Device Cleaning ]
 setlocal EnableDelayedExpansion
-Set "DeviceCleaner=x.exe"
-%Download% "%DeviceCleaner%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259381273104384/DeviceCleaner-exe-.txt?ex=65db5b97&is=65c8e697&hm=aad6eb9e7918a27b8620e5ba2fc669afe141fcca0fd1c445a7c5a927a808b48b&"
-for %%p in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if exist %%p:\nul %DeviceCleaner% /uninstall "%%p:\" >NUL 2>&1
-%DeviceCleaner% /uninstall "Disk&*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "SCSI\Disk*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "STORAGE*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "Motherboard*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "Volume*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "Microsoft*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "System*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "ACPI\*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "Remote*" /use_wildcard >NUL 2>&1
-%DeviceCleaner% /uninstall "Standard*" /use_wildcard >NUL 2>&1
-DEL /S /Q "%DeviceCleaner%" >NUL 2>&1
+for %%p in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if exist %%p:\nul DeviceCleaner.exe /uninstall "%%p:\" >NUL 2>&1
+DeviceCleaner.exe /uninstall "Disk&*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "SCSI\Disk*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "STORAGE*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Motherboard*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Volume*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Microsoft*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "System*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "ACPI\*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Remote*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Standard*" /use_wildcard >NUL 2>&1
 endlocal
 
 REM Change MAC Address
-Set "MAC-Changer=x.exe"
-%Download% "%MAC-Changer%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259382430474281/Mac-Address-exe-.txt?ex=65db5b97&is=65c8e697&hm=6d0d47b805df8669b895a88000ac4abf47bd0bbc2d108765a67dbf3c31c0caf6&"
-DEL /S /Q "%MAC-Changer%" >NUL 2>&1
+CALL MAC-Changer.exe
 
 REM Scan Device 
 SetLocal
-Set "DeviceScanner=x.exe"
-%Download% "%DeviceScanner%" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259381876818000/DeviceScan-exe-.txt?ex=65db5b97&is=65c8e697&hm=cec55a23a748ea0b0deb106a9f669da70fa4009904e2c0b263df73785b8fd4b8&"
-Start /B %DeviceScanner% rescan
-DEL /S /Q %DeviceScanner%
+Start /B /Wait DeviceScanner.exe rescan
 EndLocal
-SetLocal
-CD /D "%SystemDrive%\" & DEL /S /Q "X:\Spoofy" & RMDIR /S /Q "X:\Spoofy"
+
+CD\ & RMDIR /S /Q "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1
