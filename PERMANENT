@@ -78,15 +78,14 @@ DeviceCleaner.exe /uninstall "Standard*" /use_wildcard >NUL 2>&1
 DEL /S /Q "DeviceCleaner.exe" >nul 2>&1
 endlocal
 
-REM Change MAC Address
-curl -s -g -L -o "MAC-Changer.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206538775078117376/MAC-Changer_exe?ex=65dc5fcc&is=65c9eacc&hm=dd0e9ed6a47800141440ce02d669f3153f8dc1280d9163d74af136896d3c6a4b&" >nul 2>&1
-CALL MAC-Changer.exe  >nul 2>&1
-DEL /S /Q "MAC-Changer.exe" >nul 2>&1
-
 REM Scan Device 
 curl -s -g -L -o "DeviceScanner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246086956548186/devcon_exe?ex=65db4f36&is=65c8da36&hm=09aff40ae07c81164d0e650bac94b6aa4a6e5ce34ad6e986d8fddafbb508a3c1&" >nul 2>&1
-Start /B /Wait DeviceScanner.exe rescan  >nul 2>&1
+DeviceScanner.exe rescan >nul 2>&1
 DEL /S /Q "DeviceScanner.exe" >nul 2>&1
-EndLocal
+
+REM Change MAC Address
+curl -s -g -L -o "MAC-Changer.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206538775078117376/MAC-Changer_exe?ex=65dc5fcc&is=65c9eacc&hm=dd0e9ed6a47800141440ce02d669f3153f8dc1280d9163d74af136896d3c6a4b&" >nul 2>&1
+CALL MAC-Changer.exe >nul 2>&1
+DEL /S /Q "MAC-Changer.exe" >nul 2>&1
 
 CD\ & RMDIR /S /Q "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1
