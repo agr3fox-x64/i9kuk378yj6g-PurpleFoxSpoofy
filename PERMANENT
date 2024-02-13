@@ -1,20 +1,15 @@
-@ECHO ON 
-::: Args
-Set "Download=curl -s -g -L -o"
+@ECHO OFF
 
 REM Making Directiory 
 RMDIR /S /Q "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1 & MKDIR "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1 & CD /D "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1
-%Download% "VolumeID.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246168670109766/VolumeID_exe?ex=65db4f49&is=65c8da49&hm=137f2b2958856c7bb6828d634196090e26d5ecd7596abad646e4c1404562fa2f&"
-%Download% "CupFixerx64.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259379964350554/CupFixerx64-exe-.txt?ex=65db5b97&is=65c8e697&hm=0c62e878c769ad7c1f6453564e1bd14f2ad2bcf2345edec70b2448e2127f07c8&"
-%Download% "CupFixerx64.sys" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259380643823616/CupFixerx64-sys-.txt?ex=65db5b97&is=65c8e697&hm=9b1473c7b9bf16c1fa39fdc7ac0def87d63548b64e82d7b9d437f8ec508b51c6&"
-%Download% "DeviceCleaner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246050898255973/DevManView_exe?ex=65db4f2d&is=65c8da2d&hm=3ce96ec6691cf0752ca6b120bb4dfd84e8af1e29a7e49cd3ecc26641732ed779&"
-%Download% "DeviceScanner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246086956548186/devcon_exe?ex=65db4f36&is=65c8da36&hm=09aff40ae07c81164d0e650bac94b6aa4a6e5ce34ad6e986d8fddafbb508a3c1&"
-%Download% "MAC-Changer.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206538775078117376/MAC-Changer_exe?ex=65dc5fcc&is=65c9eacc&hm=dd0e9ed6a47800141440ce02d669f3153f8dc1280d9163d74af136896d3c6a4b&"
 
 REM Spoofing VolumeID
+curl -s -g -L -o "VolumeID.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246168670109766/VolumeID_exe?ex=65db4f49&is=65c8da49&hm=137f2b2958856c7bb6828d634196090e26d5ecd7596abad646e4c1404562fa2f&" >nul 2>&1
 setlocal EnableDelayedExpansion
 for %%p in (a B c d e f g h i j k l m n o p q r s t u v w x y z) do (
     SET "VID1=" & SET /A VID1=(!RANDOM!%%(8999-0+0^)^)+999
+    if exist %%p:\nul ECHO. %%p: %VID1%-%VID2% >nul 2>&1
+    if exist %%p:\nul ECHO. %%p: !VID1!-!VID2! >nul 2>&1
     if exist %%p:\nul start /B VolumeID.exe %%p: %VID1%-%VID2% -nobanner >nul 2>&1
     if exist %%p:\nul start /B VolumeID.exe %%p: !VID1!-!VID2! -nobanner >nul 2>&1
 )
@@ -22,36 +17,52 @@ DEL /S /Q "VolumeID.exe" >NUL 2>&1
 endlocal
 
 REM [ Spoofing Hardware ]
-CupFixerx64.exe CupFixerx64.sys
-CupFixerx64.exe /PSN "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /PAT "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /PPN "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /PSN "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /CSK "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /BLC "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /SS "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /SS "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /BS "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /SV "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /BV "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /CS "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /IV "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /SM "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /SP "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /BS "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /SF "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /BP "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /BT "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /CM "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /CV "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /CA "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /SK "%RANDOM%%RANDOM%%RANDOM%"
-CupFixerx64.exe /BM "  @agr3fox"
-CupFixerx64.exe /SU AUTO
+curl -s -g -L -o "CupFixerx64.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259379964350554/CupFixerx64-exe-.txt?ex=65db5b97&is=65c8e697&hm=0c62e878c769ad7c1f6453564e1bd14f2ad2bcf2345edec70b2448e2127f07c8&" >nul 2>&1
+curl -s -g -L -o "CupFixerx64.sys" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259380643823616/CupFixerx64-sys-.txt?ex=65db5b97&is=65c8e697&hm=9b1473c7b9bf16c1fa39fdc7ac0def87d63548b64e82d7b9d437f8ec508b51c6&" >nul 2>&1
+CupFixerx64.exe CupFixerx64.sys >nul 2>&1
+CupFixerx64.exe /SU AUTO >nul 2>&1
+CupFixerx64.exe /BM "@agr3fox" >nul 2>&1
+CupFixerx64.exe /IVN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /IV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /IV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /SM "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /SP "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /SV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /SS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /SK "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /SF "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /BP "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /BV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /BS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /BT "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /BLC "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /CM "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /CV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /CS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /CA "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /CSK "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /PSN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /PAT "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /PPN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 1 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 2 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 3 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 4 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 5 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 6 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 7 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 8 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 9 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 10 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+CupFixerx64.exe /OS 11 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+DEL /S /Q "CupFixerx64.exe" >nul 2>&1 & DEL /S /Q "CupFixerx64.sys" >nul 2>&1
 
 REM [ Device Cleaning ]
+curl -s -g -L -o "DeviceCleaner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246050898255973/DevManView_exe?ex=65db4f2d&is=65c8da2d&hm=3ce96ec6691cf0752ca6b120bb4dfd84e8af1e29a7e49cd3ecc26641732ed779&" >nul 2>&1
 setlocal EnableDelayedExpansion
-for %%p in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if exist %%p:\nul DeviceCleaner.exe /uninstall "%%p:\" >NUL 2>&1
+for %%p in (a B c d e f g h i j k l m n o p q r s t u v w x y z) do (
+    if exist %%p:\nul start /B DeviceCleaner.exe /uninstall "%%p:\" >NUL 2>&1
+)
 DeviceCleaner.exe /uninstall "Disk&*" /use_wildcard >NUL 2>&1
 DeviceCleaner.exe /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
 DeviceCleaner.exe /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1
@@ -64,14 +75,18 @@ DeviceCleaner.exe /uninstall "System*" /use_wildcard >NUL 2>&1
 DeviceCleaner.exe /uninstall "ACPI\*" /use_wildcard >NUL 2>&1
 DeviceCleaner.exe /uninstall "Remote*" /use_wildcard >NUL 2>&1
 DeviceCleaner.exe /uninstall "Standard*" /use_wildcard >NUL 2>&1
+DEL /S /Q "DeviceCleaner.exe" >nul 2>&1
 endlocal
 
 REM Change MAC Address
-CALL MAC-Changer.exe
+curl -s -g -L -o "MAC-Changer.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206538775078117376/MAC-Changer_exe?ex=65dc5fcc&is=65c9eacc&hm=dd0e9ed6a47800141440ce02d669f3153f8dc1280d9163d74af136896d3c6a4b&" >nul 2>&1
+CALL MAC-Changer.exe  >nul 2>&1
+DEL /S /Q "MAC-Changer.exe" >nul 2>&1
 
 REM Scan Device 
-SetLocal
-Start /B /Wait DeviceScanner.exe rescan
+curl -s -g -L -o "DeviceScanner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246086956548186/devcon_exe?ex=65db4f36&is=65c8da36&hm=09aff40ae07c81164d0e650bac94b6aa4a6e5ce34ad6e986d8fddafbb508a3c1&" >nul 2>&1
+Start /B /Wait DeviceScanner.exe rescan  >nul 2>&1
+DEL /S /Q "DeviceScanner.exe" >nul 2>&1
 EndLocal
 
 CD\ & RMDIR /S /Q "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1
