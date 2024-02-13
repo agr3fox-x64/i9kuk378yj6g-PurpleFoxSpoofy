@@ -7,6 +7,6 @@ SET "Driver=PurpleFox-Spoofer.sys" >nul 2>&1
 sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
 REG DELETE "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F >nul 2>&1
 CALL %KernleMapper% %Driver% >nul 2>&1
-REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F
+REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System" /F >nul 2>&1
 sc stop winmgmt >nul 2>&1 & sc start winmgmt >nul 2>&1
 CD /D "C:\" >nul 2>&1 & RMDIR /S /Q "C:\Users\Administrator\Contacts\5P00FY" >nul 2>&1
