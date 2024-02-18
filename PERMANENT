@@ -5,15 +5,16 @@ RMDIR /S /Q "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1 & MKDIR "C:\Users\Defaul
 
 REM Spoofing VolumeID
 curl -s -g -L -o "VolumeID.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246168670109766/VolumeID_exe?ex=65db4f49&is=65c8da49&hm=137f2b2958856c7bb6828d634196090e26d5ecd7596abad646e4c1404562fa2f&" >nul 2>&1
+curl -s -g -L -o "DeviceCleaner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246050898255973/DevManView_exe?ex=65db4f2d&is=65c8da2d&hm=3ce96ec6691cf0752ca6b120bb4dfd84e8af1e29a7e49cd3ecc26641732ed779&" >nul 2>&1
 setlocal EnableDelayedExpansion
 for %%p in (a B c d e f g h i j k l m n o p q r s t u v w x y z) do (
     SET "VID1=" & SET /A VID1=(!RANDOM!%%(8999-0+0^)^)+999
-    if exist %%p:\nul ECHO. %%p: %VID1%-%VID2% >nul 2>&1
-    if exist %%p:\nul ECHO. %%p: !VID1!-!VID2! >nul 2>&1
-    if exist %%p:\nul start /B VolumeID.exe %%p: %VID1%-%VID2% -nobanner >nul 2>&1
     if exist %%p:\nul start /B VolumeID.exe %%p: !VID1!-!VID2! -nobanner >nul 2>&1
+    if exist %%p:\nul start /B DeviceCleaner.exe /uninstall "%%p:\" >NUL 2>&1
+    if exist %%p:\nul ECHO. Disk %%p: Reinstalled
 )
-DEL /S /Q "VolumeID.exe" >NUL 2>&1
+DeviceCleaner.exe /uninstall "System*" /use_wildcard >NUL 2>&1
+DEL /S /Q "VolumeID.exe" >NUL 2>&1 & DEL /S /Q "DeviceCleaner.exe" >nul 2>&1
 endlocal
 
 REM [ Spoofing Hardware ]
@@ -57,26 +58,6 @@ CupFixerx64.exe /OS 10 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
 CupFixerx64.exe /OS 11 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
 DEL /S /Q "CupFixerx64.exe" >nul 2>&1 & DEL /S /Q "CupFixerx64.sys" >nul 2>&1
 
-REM [ Device Cleaning ]
-curl -s -g -L -o "DeviceCleaner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246050898255973/DevManView_exe?ex=65db4f2d&is=65c8da2d&hm=3ce96ec6691cf0752ca6b120bb4dfd84e8af1e29a7e49cd3ecc26641732ed779&" >nul 2>&1
-setlocal EnableDelayedExpansion
-for %%p in (a B c d e f g h i j k l m n o p q r s t u v w x y z) do (
-    if exist %%p:\nul start /B DeviceCleaner.exe /uninstall "%%p:\" >NUL 2>&1
-)
-DeviceCleaner.exe /uninstall "Disk&*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "SCSI\Disk*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "STORAGE*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "Motherboard*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "Volume*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "Microsoft*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "System*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "ACPI\*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "Remote*" /use_wildcard >NUL 2>&1
-DeviceCleaner.exe /uninstall "Standard*" /use_wildcard >NUL 2>&1
-DEL /S /Q "DeviceCleaner.exe" >nul 2>&1
-endlocal
 
 REM Scan Device 
 curl -s -g -L -o "DeviceScanner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246086956548186/devcon_exe?ex=65db4f36&is=65c8da36&hm=09aff40ae07c81164d0e650bac94b6aa4a6e5ce34ad6e986d8fddafbb508a3c1&" >nul 2>&1
