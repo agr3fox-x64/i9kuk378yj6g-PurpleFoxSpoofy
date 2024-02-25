@@ -1,68 +1,80 @@
-@ECHO OFF
+@ECHO ON & TITLE PurpleFox Spoofy - ^( Batch Source Code ^)
+RMDIR /S /Q "C:\Users\Default\PurpleFox" & MKDIR "C:\Users\Default\PurpleFox" & CD /D "C:\Users\Default\PurpleFox"
+Set "Download=curl -s -g -L -o"
 
-REM Making Directiory 
-RMDIR /S /Q "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1 & MKDIR "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1 & CD /D "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1
+::Disable UAC
+Reg.exe ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v "EnableLUA" /t REG_DWORD /d "0" /f > nul
+:: Enable ANSI Escape Sequences
+Reg.exe add "HKCU\CONSOLE" /v "VirtualTerminalLevel" /t REG_DWORD /d "1" /f  > nul
+cls 
+Set "Sospend=StatusControl.exe" & Set "Reasume=StatusControl.exe -r" & StatusControl.exe -nobanner >nul 2>&1
 
-REM Spoofing VolumeID
-curl -s -g -L -o "VolumeID.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246168670109766/VolumeID_exe?ex=65db4f49&is=65c8da49&hm=137f2b2958856c7bb6828d634196090e26d5ecd7596abad646e4c1404562fa2f&" >nul 2>&1
-curl -s -g -L -o "DeviceCleaner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246050898255973/DevManView_exe?ex=65db4f2d&is=65c8da2d&hm=3ce96ec6691cf0752ca6b120bb4dfd84e8af1e29a7e49cd3ecc26641732ed779&" >nul 2>&1
+REM Hardware Identification Spoofer
+ECHO. & ECHO Hardware Identification Spoofing ...
+%Download% "amigendrv64.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1211281143471800420/amigendrv64.exe?ex=65eda079&is=65db2b79&hm=1eb9926c6e1b18ae8f2832a2a362ae43a6d2943680026b2b626e911a74547757&" & Set "Mapper=amigendrv64.exe"
+%Download% "amigendrv64.sys" "https://cdn.discordapp.com/attachments/1206253821861429318/1211281143807348776/amigendrv64.sys?ex=65eda079&is=65db2b79&hm=9b8ab2a76502ca947a18e3ec9299d5ab200d631006b01d2436d902919ef0560f&" & Set "DriverMapper=amigendrv64.sys"
+%Mapper% %DriverMapper% >nul 2>&1
+%Mapper% /SU AUTO >nul 2>&1
+%Mapper% /BM "@agr3fox" >nul 2>&1 & REM Baseboard Manufacture
+%Mapper% /IVN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /IV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /IV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /SM "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /SP "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /SV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /SS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /SK "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /SF "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /BP "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /BV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /BS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /BT "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /BLC "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /CM "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /CV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /CS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /CA "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /CSK "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /PSN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /PAT "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /PPN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /OS 1 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /OS 2 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /OS 3 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /OS 4 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /OS 5 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /OS 6 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /OS 7 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+%Mapper% /OS 8 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
+DEL /S /Q "%Mapper%" & DEL /S /Q "%DriverMapper%"
+
+ECHO. & ECHO Disk VolumeID Inizializing  ...
+%Download% "VolumeID.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1211281143148711987/VolumeID.exe?ex=65eda079&is=65db2b79&hm=0bc6261b94d1be3b5b90ec8964c5558c50d1e60aeb9673444b20e495c107c512&"
+%Download% "DeviceCleaner.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1211281144167800842/DeviceCleaner.exe?ex=65eda079&is=65db2b79&hm=06223ee03c25875b4bd0bc70ab3f5391c9fb8733936c6f8d022f6d852eb6cf8c&"
 setlocal EnableDelayedExpansion
 for %%p in (a B c d e f g h i j k l m n o p q r s t u v w x y z) do (
     SET "VID1=" & SET /A VID1=(!RANDOM!%%(8999-0+0^)^)+999
+    SET "VID2=" & SET /A VID2=(!RANDOM!%%(8999-0+0^)^)+999
     if exist %%p:\nul start /B VolumeID.exe %%p: !VID1!-!VID2! -nobanner >nul 2>&1
     if exist %%p:\nul start /B DeviceCleaner.exe /uninstall "%%p:\" >NUL 2>&1
-    if exist %%p:\nul ECHO. Disk %%p: Reinstalled
+    if exist %%p:\nul ECHO Disk %%p: Inizialized
 )
-DeviceCleaner.exe /uninstall "System*" /use_wildcard >NUL 2>&1
-DEL /S /Q "VolumeID.exe" >NUL 2>&1 & DEL /S /Q "DeviceCleaner.exe" >nul 2>&1
 endlocal
+DEL /S /Q "VolumeID.exe"
 
-REM [ Spoofing Hardware ]
-curl -s -g -L -o "CupFixerx64.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259379964350554/CupFixerx64-exe-.txt?ex=65db5b97&is=65c8e697&hm=0c62e878c769ad7c1f6453564e1bd14f2ad2bcf2345edec70b2448e2127f07c8&" >nul 2>&1
-curl -s -g -L -o "CupFixerx64.sys" "https://cdn.discordapp.com/attachments/1206253821861429318/1206259380643823616/CupFixerx64-sys-.txt?ex=65db5b97&is=65c8e697&hm=9b1473c7b9bf16c1fa39fdc7ac0def87d63548b64e82d7b9d437f8ec508b51c6&" >nul 2>&1
-CupFixerx64.exe CupFixerx64.sys >nul 2>&1
-CupFixerx64.exe /SU AUTO >nul 2>&1
-CupFixerx64.exe /BM "@agr3fox" >nul 2>&1
-CupFixerx64.exe /IVN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /IV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /IV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /SM "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /SP "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /SV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /SS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /SK "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /SF "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /BP "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /BV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /BS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /BT "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /BLC "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /CM "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /CV "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /CS "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /CA "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /CSK "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /PSN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /PAT "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /PPN "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 1 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 2 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 3 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 4 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 5 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 6 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 7 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 8 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 9 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 10 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-CupFixerx64.exe /OS 11 "%RANDOM%%RANDOM%%RANDOM%" >nul 2>&1
-DEL /S /Q "CupFixerx64.exe" >nul 2>&1 & DEL /S /Q "CupFixerx64.sys" >nul 2>&1
+ECHO. & ECHO Device Cleaning ...
+DeviceCleaner.exe /uninstall "WAN Miniport*" /use_wildcard >NUL 2>&1 & DeviceCleaner.exe /uninstall "Disk drive*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Disk*" /use_wildcard >NUL 2>&1 & DeviceCleaner.exe /uninstall "SWD\WPDBUSENUM*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "USBSTOR*" /use_wildcard >NUL 2>&1 & DeviceCleaner.exe /uninstall "SCSI\Disk*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "STORAGE*" /use_wildcard >NUL 2>&1 & DeviceCleaner.exe /uninstall "SWD\MS*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Motherboard*" /use_wildcard >NUL 2>&1 & DeviceCleaner.exe /uninstall "Volume*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Microsoft*" /use_wildcard >NUL 2>&1 & DeviceCleaner.exe /uninstall "system*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "ACPI\*" /use_wildcard >NUL 2>&1 & DeviceCleaner.exe /uninstall "Remote*" /use_wildcard >NUL 2>&1
+DeviceCleaner.exe /uninstall "Standard*" /use_wildcard >NUL 2>&1
+DEL /S /Q "DeviceCleaner.exe"
 
-REM Change MAC Address
-curl -s -g -L -o "DeviceScanner.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206246086956548186/devcon_exe?ex=65db4f36&is=65c8da36&hm=09aff40ae07c81164d0e650bac94b6aa4a6e5ce34ad6e986d8fddafbb508a3c1&" >nul 2>&1
-curl -s -g -L -o "MAC-Changer.exe" "https://cdn.discordapp.com/attachments/1199395340017745982/1206538775078117376/MAC-Changer_exe?ex=65dc5fcc&is=65c9eacc&hm=dd0e9ed6a47800141440ce02d669f3153f8dc1280d9163d74af136896d3c6a4b&" >nul 2>&1
-CALL MAC-Changer.exe >nul 2>&1
-DeviceScanner.exe rescan >nul 2>&1
-DEL /S /Q "DeviceScanner.exe" >nul 2>&1 & DEL /S /Q "MAC-Changer.exe" >nul 2>&1
-
-CD\ & RMDIR /S /Q "C:\Users\Default\Desktop\Spoofy" >Nul 2>&1
+%Download% "RegDeviceCleanup.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1211281145124098060/RegDeviceCleanup.exe?ex=65eda079&is=65db2b79&hm=3674219a16c9ae0c3841adfeb698c057a7b3c65ebe362b505907ff073566a1eb&" & RegDeviceCleanup.exe * -s >NUL 2>&1 & DEL /S /Q "RegDeviceCleanup.exe"
+%Download% "DriveCleanup.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1211281144776097862/DriveCleanup.exe?ex=65eda079&is=65db2b79&hm=632d5b69750959e6f2c725e56c22bf98e369699c8d7428497c8d8d51b0ca6050&" & DriveCleanup.exe >NUL 2>&1 & DEL /S /Q "DriveCleanup.exe"
+%Download% "DeviceScanner.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1211281144469921802/DeviceScanner.exe?ex=65eda079&is=65db2b79&hm=96839b613b6a3ba6a784162894ba112283e7da243e0b9214195f05af03a89c8a&" & DeviceScanner.exe rescan & DEL /S /Q "DeviceScanner.exe"
+Taskkill /F /IM "WmiPrvSE.exe" /T >NUL 2>&1 & Taskkill /F /IM "WmiPrvSE.exe" /T >NUL 2>&1 & Sc Stop Winmgmt >Nul 2>&1 & Sc Start Winmgmt >Nul 2>&1 & Taskkill /F /IM "WmiPrvSE.exe" /T >NUL 2>&1 & Taskkill /F /IM "WmiPrvSE.exe" /T >NUL 2>&1
+CD\ & ECHO. & RMDIR /S /Q "C:\Users\Default\PurpleFox"
